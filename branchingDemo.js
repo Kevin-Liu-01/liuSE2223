@@ -20,6 +20,13 @@ const months = [
 const d = new Date();
 
 //getMonth() returns the month as an integer (0-11). Jan=0, Dec=11
+// getDay() returns the date as an integer(1-31)
+//getyear() returns the year as a 4 digit number
 let month = months[d.getMonth()];
+let day = d.getDate();
+let year = d.getFullYear();
 
-console.log("The date is: " + d);
+let currentDate = "The current date is " + month + " " + day + ", " + year;
+
+console.log(d);
+console.log(currentDate);
