@@ -18,30 +18,76 @@
     />
 
     <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?specimen=Work+Sans">
+
   </head>
   <body>
     <div>
       <!--Navbar-->
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light">
+      <nav class="navbar navbar-expand-lg navbar-dark text-light nb-bg-color">
         <div class="container">
-          <a href="#" class="navbar-brand">RESEARCH</a>
+          <a href="#" class="navbar-brand">
+            <img
+              src="https://genetics-gsa.org/tagc-2020/wp-content/uploads/sites/4/2019/09/OrganismIcon_Celegans_Transparent@2x-300x276.png"
+              class="navbar-brand block overflow-hidden h-auto"
+              style="width: 100px"
+          /></a>
 
-          <div class="row">
-            <div class="col-lg">Procedure</div>
+          <!--Hamburger Menu Button-->
+          <button
+            class="navbar-toggler"
+            type="button"
+            :data-bs-toggle="collapse"
+            data-bs-target="#navmenu"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-            <div class="col-sm">Graphs</div>
-            <div class="col-sm">Data</div>
-            <div class="col-sm">Conclusions</div>
+          <!--Collapsible navbar menu with custo hover underline CSS animation-->
+          <div class="collapse navbar-collapse" id="navmenu">
+            <!-- Links to hamburger menu buttons-->
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a
+                  href="/author.html"
+                  class="nav-link hover-underline-animation"
+                  id="nbMenuItem"
+                  >Author</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="/.html"
+                  class="nav-link hover-underline-animation"
+                  id="nbMenuItem"
+                  >Graphs</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="/.html"
+                  class="nav-link hover-underline-animation"
+                  id="nbMenuItem"
+                  >Data</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="/.html"
+                  class="nav-link hover-underline-animation"
+                  id="nbMenuItem"
+                  >Conclusions</a
+                >
+              </li>
+            </ul>
           </div>
-        </div>
       </nav>
-      <!--Navbar-->
 
       <!--Carousel-->
-      <div class="container">
+      <div class="container mt-4 mb-4">
         <div
           id="carouselExampleCaptions"
-          class="carousel slide text-dark"
+          class="carousel slide text-dark rounded overflow-hidden"
           data-bs-ride="carousel"
         >
           <div class="carousel-indicators">
@@ -68,44 +114,38 @@
               class="btn btn-dark"
             ></button>
           </div>
-          <div class="carousel-inner">
+          <div class="carousel-inner overflow-hidden">
             <div class="carousel-item active">
               <img
-                src="https://worms.zoology.wisc.edu/research/elegans/files/worm_dic.jpg"
+                src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Adult_Caenorhabditis_elegans.jpg"
                 class="d-block w-100"
                 alt="..."
               />
               <div class="carousel-caption d-none d-md-block text-dark">
-                <h5>First slide label</h5>
-                <p>
-                  Some representative placeholder content for the first slide.
-                </p>
+                <h5>Normal C. Elegans</h5>
+                <p>The standard, healthy state of Caenorhabditis elegans.</p>
               </div>
             </div>
             <div class="carousel-item">
               <img
-                src="https://worms.zoology.wisc.edu/research/elegans/files/worm_dic.jpg"
+                src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Adult_Caenorhabditis_elegans.jpg"
                 class="d-block w-100"
                 alt="..."
               />
               <div class="carousel-caption d-none d-md-block text-dark">
-                <h5>Second slide label</h5>
-                <p>
-                  Some representative placeholder content for the second slide.
-                </p>
+                <h5>C. elegans, 10% Ink</h5>
+                <p>Caenorhabditis elegans exposed to a 10% ink solution.</p>
               </div>
             </div>
             <div class="carousel-item">
               <img
-                src="https://worms.zoology.wisc.edu/research/elegans/files/worm_dic.jpg"
+                src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Adult_Caenorhabditis_elegans.jpg"
                 class="d-block w-100"
                 alt="..."
               />
               <div class="carousel-caption d-none d-md-block text-dark">
-                <h5>Third slide label</h5>
-                <p>
-                  Some representative placeholder content for the third slide.
-                </p>
+                <h5>C. elegans, 100% Ink</h5>
+                <p>Caenorhabditis elegans exposed to pure ink.</p>
               </div>
             </div>
           </div>
@@ -130,6 +170,14 @@
         </div>
       </div>
       <!--Carousel-->
+
+      <!-- Main -->
+      <div class="container mt-2 mb-2">
+        <div class="row">
+          <div class="col nb-bg-color">Column</div>
+          <div class="col nb-bg-color">Column</div>
+        </div>
+      </div>
 
       <!--Accordion-->
       <div class="container">
