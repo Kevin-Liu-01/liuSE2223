@@ -1,5 +1,33 @@
 /*Class CSS*/
 
+.showcase {
+  background-color: rgb(153, 183, 194);
+}
+
+.author {
+  background-color: rgb(153, 183, 194);
+}
+
+.procedureStep {
+  background-color: rgb(205, 228, 237);
+}
+
+.about-author {
+  color: rgb(35, 35, 35);
+}
+
+.rationaleBG {
+  background-color: rgb(177, 218, 235);
+}
+
+.icon-white {
+  color: white;
+}
+
+.overview {
+  background-color: rgb(205, 223, 230);
+}
+
 .nb-bg-color {
   background-color: rgb(22, 37, 74);
 }
@@ -8,6 +36,19 @@
 a#nbMenuItem {
   font-size: 19px;
   padding: 10px 20px;
+}
+
+div#about {
+  width: 400px;
+  margin: auto;
+}
+
+h1#ovPadLeft {
+  padding-left: 20px;
+}
+
+h1#ovPadRight {
+  padding-right: 20px;
 }
 
 /*Underline Animation CSS*/
