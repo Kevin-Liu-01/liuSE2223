@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Author</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div>
+      <!--Navbar-->
+      <nav class="navbar navbar-expand-lg navbar-dark text-light nb-bg-color">
+        <div class="container">
+          <a href="/" class="navbar-brand">
+            <img
+              src="https://genetics-gsa.org/tagc-2020/wp-content/uploads/sites/4/2019/09/OrganismIcon_Celegans_Transparent@2x-300x276.png"
+              class="d-inline-block align-text block overflow-hidden h-auto"
+              alt="C. Elegans"
+              style="width: 100px"
+          /></a>
+
+          <!--Hamburger Menu Button-->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navmenu"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!--Collapsible navbar menu with custo hover underline CSS animation-->
+          <div class="collapse navbar-collapse" id="navmenu">
+            <!-- Links to hamburger menu buttons-->
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a
+                  href="/pages/author.html"
+                  class="nav-link hover-underline-animation"
+                  id="nbMenuItem"
+                  >Author</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="/pages/procedure.html"
+                  class="nav-link hover-underline-animation"
+                  id="nbMenuItem"
+                  >Procedure</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <a
+                  href="/pages/results.html"
+                  class="nav-link hover-underline-animation"
+                  id="nbMenuItem"
+                  >Results</a
+                >
+              </li>
+            </ul>
+          </div>
+      </nav>
+    </div>
+
+    <!--About the author-->
+    <section class="author pb-5">
+        <div class=" container">
+            <br >
+            <h1 class="text-center about-author">About the Author</h1>
+            <hr > <br> <!--Horizontal line and line break-->
+
+            <!--Cards organized in a 2x2 table format-->
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col">
+                    <div class="card" id="about">
+                        <img src="/img/man1.png" class="card-img-top m-auto pt-4 rounded-circle" style="width:250px" alt="Profile Picture">
+                        <div class="card-body">
+                            <h4 class="card-title">Kevin Liu</h4>
+                            <h5>Class: CSE</h5>
+                            <p class="card-text">
+                                My name is <strong>Kevin Liu</strong> and I am a student at High Technology High School.
+                                I am interested in the intersection of biology and computer science
+                                and am currently working on a project that uses machine learning to
+                                predict the effects of genetic mutations on the C. Elegans
+                                organism.
+                            </p>
+                        </div>                           
+                    </div>     
+                </div>
+                
+                <!-- <div class="col">
+                    <div class="card" id="about">
+                        <img src="/img/man2.jpg" class="card-img-top" alt="Profile Picture">
+                        <div class="card-body">
+                            <h4 class="card-title">Kevin Liu</h4>
+                            <h5>Class: BME</h5>
+                            <p class="card-text">
+                                My name is <strong>Kevin Liu</strong> and I am a student at High Technology High School.
+                                I am interested in the intersection of biology and computer science
+                                and am currently working on a project that uses machine learning to
+                                predict the effects of genetic mutations on the C. Elegans
+                                organism.
+                            </p>
+                        </div>                           
+                    </div>     
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="p-5 nb-bg-color  footer text-light text-center position-relative">
+        <div class="container ">
+          <p class="lead">Copyright &copy;2022</p>
+          <a href="#":class="position-absolute bottom-0 end-0 p-5">
+            <i class="bi bi-arrow-up-circle h2 icon-white"></i>
+          </a>
+        </div>
+      </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
