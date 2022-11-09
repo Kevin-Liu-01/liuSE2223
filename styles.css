@@ -76,3 +76,9 @@ h1#ovPadRight {
   transform: scaleX(1);
   /*transform-origin: bottom left;*/
 }
+
+#chart-container {
+  border-radius: 15px;
+  background-color: white;
+  padding: 1rem;
+}
