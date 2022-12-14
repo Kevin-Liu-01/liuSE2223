@@ -37,6 +37,24 @@
 a#nbMenuItem {
   font-size: 19px;
   padding: 10px 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+a#userLink {
+  font-size: 19px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+a#signOut {
+  font-size: 19px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 div#about {
