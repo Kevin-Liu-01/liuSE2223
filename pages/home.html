@@ -17,14 +17,14 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
     />
 
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;400&display=swap"
       rel="stylesheet"
     />
-    <script type="module" src="../js/userController.js" defer></script>
+    <script type="module" src="../js/update.js" defer></script>
 
   </head>
   <body class="body">
@@ -32,7 +32,7 @@
       <!--Navbar-->
       <nav class="navbar navbar-expand-lg navbar-dark text-light nb-bg-color">
         <div class="container">
-          <a href="#" class="navbar-brand">
+          <a href="/index.html" class="navbar-brand">
             <img
               src="https://genetics-gsa.org/tagc-2020/wp-content/uploads/sites/4/2019/09/OrganismIcon_Celegans_Transparent@2x-300x276.png"
               class="d-inline-block align-text block overflow-hidden h-auto"
@@ -56,7 +56,7 @@
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
                 <a
-                  href="./pages/author.html"
+                  href="./author.html"
                   class="nav-link hover-underline-animation"
                   id="nbMenuItem"
                   >Author</a
@@ -64,7 +64,7 @@
               </li>
               <li class="nav-item">
                 <a
-                  href="./pages/procedure.html"
+                  href="./procedure.html"
                   class="nav-link hover-underline-animation"
                   id="nbMenuItem"
                   >Procedure</a
@@ -72,7 +72,7 @@
               </li>
               <li class="nav-item">
                   <a
-                    href="./pages/data.html"
+                    href="./data.html"
                     class="nav-link hover-underline-animation"
                     id="nbMenuItem"
                     >Data</a
@@ -80,7 +80,7 @@
               </li>
               <li class="nav-item">
                 <a
-                  href="./pages/results.html"
+                  href="./results.html"
                   class="nav-link hover-underline-animation"
                   id="nbMenuItem"
                   >Results</a
@@ -101,13 +101,9 @@
       <section class="showcase text-light p-2 text-center">
 
         <div class="container">
-          <div class="row py-3">
 
-            <div class="col-sm-6 p-0 d-flex align-items-center ">
-                <img class="img-fluid " style="border-radius:12px" src="./img/spilledink.jpg" alt="spilled ink"><img>
-            </div>
             <!--Column 2-->
-            <div class="col-sm-6 p-0 d-flex align-items-center ">
+            <div class="p-0 d-flex align-items-center ">
               <div class="container">
                 <h1 class="display-4">The Effect of Permachrome Ink on C. Elegans Lifespan</h1>
                 <h2 class="pt-3">2021-2022</h2>
@@ -115,69 +111,44 @@
                   <h1 id = "welcome"></h1>
               </div>
               </div>
-            </div>
             
         </div>
         </div>
       </section>
 
-      <!--Overview-->
-      <section class="overview text-dark p-2 text-left pb-4">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-5 py-3">
-                <img class="img-fluid h-100 " src="./img/marker.jpg" alt="Marker" style="border-radius:12px" />
-              </div>
-
-              <div class="col-sm-7 p-3">
-                <h1 id="noPadLeft">Background</h1>
-                <p class="lead overview-font" id="ovPadLeft">Permanent markers represent more than $317 million 
-                  worth of products. The vast majority of permanent markers receive Approved Product (AP)
-                   Seals to designate their safety, indicating that the marker ink has been tested and that toxins 
-                   were not found in sufficient quantities to be injurious to people. However, this certification 
-                   only applies when the product is being used for the intent it was created. This
-                    does not necessarily guarantee that markers were specifically tested for direct exposure 
-                    to the human body.	
-                </p>
-              </div>
-            </div>
-
-            <div class="row rationaleBG my-4" style="border-radius:12px">
-              <div class="col-sm-7 p-3 ">
-                <h1 id="noPadLeft text-dark">Rationale</h1>
-                <p class="lead overview-font strong" id="ovPadRight">Permanent markers are one of the most popular 
-                  stationery products in the United States. As such, safety certifications like the AP designation 
-                  indicate the safety of the products’ ink, but this designation encourages a false sense of security that may 
-                  not genuinely reflect the potential dangers of the product. Most markers use permachrome 
-                  ink, which contains dangerous chemicals like xylene, toluene, and cresol. 
-                  This ink may not have been tested directly on the human body, so it 
-                  warrants further insight to guarantee its safety.</p>
-              </div>             
-              
-              <div class="col-sm-5 py-3">
-                <img class="img-fluid h-100" src="./img/inkwell.jpg" alt="Inkwell" style="border-radius:12px" />
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-sm-5 py-3">
-                <img class="img-fluid h-100" src="./img/researcher.jpg" alt="Researchers" style="border-radius:12px" />
-              </div>
-              <div class="col-sm-7 p-3">
-                <h1 id="noPadLeft">Research Practicum</h1>
-                <p class="lead overview-font " id="ovPadLeft">The results from this study are not a final 
-                  conclusion regarding the safety of permachrome ink, but do indicate that further research 
-                  should be done testing the toxicity of AP-certified permachrome ink to ensure its safety. 
-                  Since concentrations of less than 10% permachrome ink significantly affected C. elegans 
-                  populations, with noticeably smaller populations, these results indicate that permachrome 
-                  ink may indeed be injurious, and warrant further analysis. 
-                </p>
-              </div>             
-              
-
-            </div>
-          </div>
-      </section>
+         <!--Firebase Data Operations -->
+    <!--Set and Update Data-->
+    <div class="container border datasetter">
+      <br><h2>Update Data</h2><br>
+      <ol class="list-group notes">
+          <li class="list-group-item border-0"><strong>Update</strong> replaces the fields that have changed at the node/adds new fields if they aren't present.</li>
+      </ol><br>
+      
+      <div class="container dataForm mb-5">
+          <form>
+              <select class="form-select mb-3" aria-label="Default select example" id="week">
+                  <option selected>Week Number</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+              </select>
+              <select class="form-select mb-3" aria-label="Default select example" id="concentrations">
+                  <option selected>Ink Concentration</option>
+                  <option value="0.1%">0.1%</option>
+                  <option value="1%">1%</option>
+                  <option value="10%">10%</option>
+                  <option value="100%">100%</option>
+              </select>
+            
+              <input type="text" class="form-control mb-3" placeholder="C. Elegans count" id="wormCount">
+              <!-- <button type = "button" id="set" name="set" class="btn btn-outline-primary mb-3 w-100">Set</button> -->
+              <button type = "button" id="update" name="update" class="btn btn-outline-secondary mb-3 w-100">Update</button>
+          </form>       
+      </div>
+  </div><br>
 
     <!-- Footer -->
 

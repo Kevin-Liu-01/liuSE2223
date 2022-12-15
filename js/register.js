@@ -70,7 +70,7 @@ document.getElementById("submitData").onclick = function () {
       });
       // ...
       alert("Registration Successful!");
-      window.location = "../index.html";
+      window.location = "../pages/home.html";
     })
     .catch((error) => {
       const errorCode = error.code;

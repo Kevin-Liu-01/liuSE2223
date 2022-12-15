@@ -101,6 +101,31 @@ function signOutUser() {
 //   setData(year, month, day, temp, userID);
 // };
 
+// -------------------------Update data in database --------------------------
+function updateData(week, concentrations, wormCount, userID) {
+  // Set the data
+  update(ref(db, `users/${userID}/data/${week}`), {
+    ["Concentrations"]: concentrations,
+    ["Worm Count"]: wormCount,
+  })
+    .then(() => {
+      alert("Data updated successfully");
+    })
+    .catch((error) => {
+      alert(`Error: ${error.code} - ${error.message}`);
+    });
+}
+
+document.getElementById("update").onclick = function () {
+  const week = "Week " + document.getElementById("week").value;
+  const concentrations = document.getElementById("concentrations").value;
+  const wormCount = document.getElementById("wormCount").value;
+  const userID = currentUser.uid;
+
+  updateData(week, concentrations, wormCount, userID);
+};
+// COMMENT ENDS HERE
+
 // ----------------------Get a datum from FRD (single data point)---------------
 
 // ---------------------------Get a month's data set --------------------------
@@ -130,7 +155,7 @@ window.onload = function () {
     console.log(currentUser);
 
     userLink.innerText = "Signed in as " + currentUser.firstName;
-    // welcome.innerText = "Welcome, " + currentUser.firstName;
+    welcome.innerText = "Welcome, " + currentUser.firstName;
     userLink.classList.replace("btn", "nav-link");
     userLink.classList.add("btn-primary");
     userLink.href = "#";
@@ -147,8 +172,6 @@ window.onload = function () {
 };
 
 // ------------------------- Set Welcome Message -------------------------
-
-// Get, Set, Update, Delete Sharkriver Temp. Data in FRD
 // Set (Insert) data function call
 
 // Update data function call

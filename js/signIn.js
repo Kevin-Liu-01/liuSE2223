@@ -84,10 +84,10 @@ function logIn(user) {
 
   if (!keepLoggedIn) {
     sessionStorage.setItem("user", JSON.stringify(user));
-    window.location = "../index.html";
+    window.location = "../pages/home.html";
   } else {
     localStorage.setItem("keepLoggedIn", "yes");
     localStorage.setItem("user", JSON.stringify(user));
-    window.location = "../index.html";
+    window.location = "../pages/home.html";
   }
 }
