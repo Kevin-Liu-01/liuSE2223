@@ -77,35 +77,32 @@ function signOutUser() {
 }
 
 // ------------------------Set (insert) data into FRD ------------------------
-// function setData(year, month, day, temp, userID) {
-//   // Set the data
-//   set(ref(db, `users/${userID}/data/${year}/${month}`), {
-//     [day]: temp,
-//   })
-//     .then(() => {
-//       alert("Data saved successfully");
-//     })
-//     .catch((error) => {
-//       alert(`Error: ${error.code} - ${error.message}`);
-//     });
-// }
+function setData(week, concentrations, wormCount, userID) {
+  // Set the data
+  set(ref(db, `users/${userID}/data/${week}/${concentrations}`), {
+    ["Worm Count"]: wormCount,
+  })
+    .then(() => {
+      alert("Data saved successfully");
+    })
+    .catch((error) => {
+      alert(`Error: ${error.code} - ${error.message}`);
+    });
+}
 
-//COMMENT STARTS HERE
-// document.getElementById("set").onclick = function () {
-//   const year = document.getElementById("year").value;
-//   const month = document.getElementById("month").value;
-//   const day = document.getElementById("day").value;
-//   const temp = document.getElementById("temperature").value;
-//   const userID = currentUser.uid;
+document.getElementById("set").onclick = function () {
+  const week = "Week " + document.getElementById("week").value;
+  const concentrations = document.getElementById("concentrations").value;
+  const wormCount = document.getElementById("wormCount").value;
+  const userID = currentUser.uid;
 
-//   setData(year, month, day, temp, userID);
-// };
+  setData(week, concentrations, wormCount, userID);
+};
 
 // -------------------------Update data in database --------------------------
 function updateData(week, concentrations, wormCount, userID) {
   // Set the data
-  update(ref(db, `users/${userID}/data/${week}`), {
-    ["Concentrations"]: concentrations,
+  update(ref(db, `users/${userID}/data/${week}/${concentrations}`), {
     ["Worm Count"]: wormCount,
   })
     .then(() => {
@@ -124,7 +121,6 @@ document.getElementById("update").onclick = function () {
 
   updateData(week, concentrations, wormCount, userID);
 };
-// COMMENT ENDS HERE
 
 // ----------------------Get a datum from FRD (single data point)---------------
 
@@ -132,9 +128,69 @@ document.getElementById("update").onclick = function () {
 // Must be an async function because you need to get all the data from FRD
 // before you can process it for a table or graph
 
+async function getDataSet(week, userID) {
+  // let weekVal = document.getElementById("setWeek");
+
+  // weekVal.textContent = `Week: ${week}`;
+
+  const concentration = [];
+  const wormCount = [];
+  const tbodyEl = document.getElementById("tbody-2"); //Select <tbody> from table
+
+  const dbref = ref(db); //firebase parameter required for 'get'
+
+  //wait for all data to be pulled from the frd
+  //provide path through the nodes to the data
+  await get(child(dbref, `users/${userID}/data/Week ${week}`))
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        // console.log("THE SNAPSHOT" + snapshot.val());
+        //get the data from the snapshot
+        snapshot.forEach((child) => {
+          // console.log("THE SNAPSHOT" + child, child.key, child.val());
+          concentration.push(child.key);
+          wormCount.push(Object.values(child.val())[0]);
+        });
+      } else {
+        alert("No data found");
+      }
+    })
+    .catch((error) => {
+      alert(`Error: ${error}`);
+    });
+
+  //Clear table
+  tbodyEl.innerHTML = "";
+  //Dynamically add table rows to HTML
+
+  for (let i = 0; i < concentration.length; i++) {
+    addItemToTable(week, concentration[i], wormCount[i], tbodyEl);
+  }
+}
+
 // Add a item to the table of data
+function addItemToTable(week, concentration, wormCount, tbodyEl) {
+  let tr = document.createElement("tr");
+  let td1 = document.createElement("td");
+  let td2 = document.createElement("td");
+  let td3 = document.createElement("td");
+
+  td1.innerHTML = week;
+  td2.innerHTML = concentration;
+  td3.innerHTML = wormCount;
+
 
 // -------------------------Delete a day's data from FRD ---------------------
+
+function deleteData(week, concentration, userID) {
+  remove(ref(db, `users/${userID}/data/Week ${week}/${concentration}`))
+    .then(() => {
+      alert("Data deleted successfully");
+    })
+    .catch((error) => {
+      alert(`Error: ${error}`);
+    });
+}
 
 // --------------------------- Home Page Loading -----------------------------
 
@@ -172,45 +228,57 @@ window.onload = function () {
 };
 
 // ------------------------- Set Welcome Message -------------------------
+
+// Get, Set, Update, Delete Sharkriver Temp. Data in FRD
 // Set (Insert) data function call
 
 // Update data function call
 
-// //START COMMENT HERE
-// // Get a datum function call
-// function getDatum(userID, year, month, day) {
-//   // Get the data
-//   let yearVal = document.getElementById("yearVal");
-//   let monthVal = document.getElementById("monthVal");
-//   let dayVal = document.getElementById("dayVal");
-//   let tempVal = document.getElementById("tempVal");
+// Get a datum function call
+function getDatum(userID, week, concentration) {
+  // Get the data
+  let weekVal = document.getElementById("weekVal");
+  let concentrationVal = document.getElementById("concentrationVal");
+  let wormVal = document.getElementById("wormVal");
 
-//   const dbref = ref(db);
+  const dbref = ref(db);
 
-//   get(child(dbref, `users/${userID}/data/${year}/${month}/${day}`))
-//     .then((snapshot) => {
-//       if (snapshot.exists()) {
-//         yearVal.textContent = year;
-//         monthVal.textContent = month;
-//         dayVal.textContent = day;
-//         tempVal.textContent = snapshot.val();
-//       } else {
-//         alert("No data available");
-//       }
-//     })
-//     .catch((error) => {
-//       alert(`Error: ${error.code} - ${error.message}`);
-//     });
-// }
+  get(child(dbref, `users/${userID}/data/Week ${week}/${concentration}`))
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        weekVal.textContent = week;
+        concentrationVal.textContent = concentration;
+        wormVal.textContent = Object.values(snapshot.val())[0];
+      } else {
+        alert("No data available");
+      }
+    })
+    .catch((error) => {
+      alert(`Error: ${error.code} - ${error.message}`);
+    });
+}
 
-// document.getElementById("get").onclick = function () {
-//   const year = document.getElementById("getYear").value;
-//   const month = document.getElementById("getMonth").value;
-//   const day = document.getElementById("getDay").value;
+//Get a datum
+document.getElementById("get").onclick = function () {
+  const week = document.getElementById("getWeek").value;
+  const concentration = document.getElementById("getConcentrations").value;
 
-//   getDatum(currentUser.uid, year, month, day);
-// };
-//END COMMENT HERE
+  getDatum(currentUser.uid, week, concentration);
+};
+
 // Get a data set function call
+document.getElementById("getDataSet").onclick = function () {
+  const week = document.getElementById("setWeek").value;
+  const userID = currentUser.uid;
+
+  getDataSet(week, userID);
+};
 
 // Delete a single day's data function call
+document.getElementById("delete").onclick = function () {
+  const week = document.getElementById("delWeek").value;
+  const concentration = document.getElementById("delConcentration").value;
+  const userID = currentUser.uid;
+
+  deleteData(week, concentration, userID);
+};

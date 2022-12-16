@@ -119,9 +119,11 @@
          <!--Firebase Data Operations -->
     <!--Set and Update Data-->
     <div class="container border datasetter">
-      <br><h2>Update Data</h2><br>
+      <br><h2>Update/Set Data</h2><br>
       <ol class="list-group notes">
           <li class="list-group-item border-0"><strong>Update</strong> replaces the fields that have changed at the node/adds new fields if they aren't present.</li>
+          <li class="list-group-item border-0"><strong>Set</strong> overrides the node. Be careful with it.</li>
+
       </ol><br>
       
       <div class="container dataForm mb-5">
@@ -137,19 +139,140 @@
               </select>
               <select class="form-select mb-3" aria-label="Default select example" id="concentrations">
                   <option selected>Ink Concentration</option>
-                  <option value="0.1%">0.1%</option>
                   <option value="1%">1%</option>
                   <option value="10%">10%</option>
                   <option value="100%">100%</option>
               </select>
             
               <input type="text" class="form-control mb-3" placeholder="C. Elegans count" id="wormCount">
-              <!-- <button type = "button" id="set" name="set" class="btn btn-outline-primary mb-3 w-100">Set</button> -->
+              <button type = "button" id="set" name="set" class="btn btn-outline-primary mb-3 w-100">Set</button>
               <button type = "button" id="update" name="update" class="btn btn-outline-secondary mb-3 w-100">Update</button>
           </form>       
       </div>
   </div><br>
 
+    <!--Get a single datum -->
+    <div class="container border datasetter">
+      <br><h2>Get a Datum (single data point)</h2><br>
+      <ol class="list-group list-group-numbered notes">
+          <li class="list-group-item border-0">Retrieve a single week from a node and display it in a table.</li>
+      </ol><br>
+      
+      <div class="container dataForm mb-5">
+          <form>
+            <select class="form-select mb-3" aria-label="Default select example" id="getWeek">
+              <option selected>Week Number</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+          </select>
+          <select class="form-select mb-3" aria-label="Default select example" id="getConcentrations">
+              <option selected>Ink Concentration</option>
+              <option value="1%">1%</option>
+              <option value="10%">10%</option>
+              <option value="100%">100%</option>
+          </select>
+              <button type = "button" id="get" name="get" class="btn btn-outline-primary mb-3 w-100">get</button>
+          </form>       
+      </div>
+
+      <!-- Table for displaying selected data -->
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Week</th>
+              <th scope="col">Concentration</th>
+              <th scope="col">Worm Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><p id ="weekVal"></p></td>
+              <td><p id ="concentrationVal"></td>
+              <td><p id ="wormVal"></td>
+            </tr>
+            <tr>
+          </tbody>
+        </table>
+  </div><br>
+
+  <!--Get a data set -->
+  <div class="container border datasetter ">
+      <br><h2>Get a Data Set</h2><br>
+      <ol class="list-group list-group-numbered notes">
+          <li class="list-group-item border-0">Retrieve an entire week's set of worm data and display in a table</li>
+      </ol><br>
+      
+      <div class="container dataForm mb-5">
+          <form>
+            <select class="form-select mb-3" aria-label="Default select example" id="setWeek">
+              <option selected>Week Number</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+          </select>
+              <button type = "button" id="getDataSet" name="getDataSet" class="btn btn-outline-primary mb-3 w-100">Get Dataset</button>
+          </form>       
+      </div>
+
+      <div>
+          <h5 id="setWeekVal"></h5>
+      </div>
+
+      <!-- Table for displaying data set -->
+      <div class="container">
+          <table class="table">
+              <thead>
+              <tr>
+                  <th scope="col">Week</th>
+                  <th scope="col">Concentration</th>
+                  <th scope="col">Worm Count</th>
+              </tr>
+              </thead>
+              <tbody id = "tbody-2">
+              </tbody>
+          </table>
+      </div>
+  </div><br>
+
+  </div><br>
+
+  <!--Delete Data-->
+  <div class="container border datasetter">
+      <br><h2>Delete Data</h2><br>
+      <ol class="list-group list-group-numbered notes">
+          <li class="list-group-item border-0">This function will allow you to delete a single week's concentration data</li>
+          <li class="list-group-item border-0">To delete an entire week's data, you need to remove modify the directory path removing the 'week' part.</li>
+      </ol><br>
+      
+      <div class="container dataForm mb-5">
+          <form>
+            <select class="form-select mb-3" aria-label="Default select example" id="delWeek">
+              <option selected>Week Number</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+          </select>
+          <select class="form-select mb-3" aria-label="Default select example" id="delConcentration">
+              <option selected>Ink Concentration</option>
+              <option value="1%">1%</option>
+              <option value="10%">10%</option>
+              <option value="100%">100%</option>
+          </select>
+
+              <button type = "button" id="delete" name="delete" class="btn btn-outline-primary mb-3 w-100">Delete</button>
+          </form>       
+      </div>
+  </div><br>
     <!-- Footer -->
 
     <footer class="p-5 nb-bg-color footer text-light text-center position-relative">
