@@ -179,6 +179,12 @@ function addItemToTable(week, concentration, wormCount, tbodyEl) {
   td2.innerHTML = concentration;
   td3.innerHTML = wormCount;
 
+  tr.appendChild(td1);
+  tr.appendChild(td2);
+  tr.appendChild(td3);
+
+  tbodyEl.appendChild(tr);
+}
 
 // -------------------------Delete a day's data from FRD ---------------------
 
