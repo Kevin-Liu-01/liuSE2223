@@ -1,4 +1,5 @@
 // ----------------- Page Loaded After User Sign-in -------------------------//
+//All non-sign-in/registration pages will use this code to access user state
 
 // ----------------- Firebase Setup & Initialization ------------------------//
 

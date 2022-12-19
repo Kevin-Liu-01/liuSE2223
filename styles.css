@@ -112,6 +112,13 @@ h1#ovPadRight {
   margin-bottom: 1rem;
 }
 
-.body {
+body {
   background-color: rgb(153, 183, 194);
+  font-family: "Jost", monospace;
+}
+
+.signUpForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
